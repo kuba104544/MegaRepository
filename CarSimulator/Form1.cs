@@ -14,7 +14,8 @@ namespace CarSimulator
     {
         IEngine engine = null;
         IOdometer odometer = null;
-
+        bool isOpenSpeedWindow = true;
+        SpeedometerForm speedometer;
         public Form1()
         {
             InitializeComponent();
@@ -45,12 +46,17 @@ namespace CarSimulator
 
         private void button1_Click(object sender, EventArgs e)
         {
-            new SpeedometerForm(engine).Show();
+
+    
+                speedometer = new SpeedometerForm(engine);
+                speedometer.Show();
+       
+           
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            new OdometerForm(odometer).Show();
+          //  new OdometerForm(odometer).Show();
 
         }
     }

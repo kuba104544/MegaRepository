@@ -12,7 +12,7 @@ namespace CarSimulator
 {
     public partial class OdometerForm : Form
     {
-        public OdometerForm(IOdometer odometer)
+        public OdometerForm()
         {
             InitializeComponent();
         }

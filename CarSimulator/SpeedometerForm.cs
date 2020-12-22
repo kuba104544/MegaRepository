@@ -15,6 +15,22 @@ namespace CarSimulator
         public SpeedometerForm(IEngine engine)
         {
             InitializeComponent();
+
+            this.speedResult.Text = Convert.ToString(engine.Speed);
+            engine.SpeedChanged += Engine_SpeedChanged;
         }
+
+        private void Engine_SpeedChanged(object sender, SpeedChangedArgs e)
+        {
+
+            this.speedResult.Text = Convert.ToString(e.Speed);
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+ 
     }
 }
