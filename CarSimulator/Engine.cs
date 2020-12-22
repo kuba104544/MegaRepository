@@ -24,12 +24,12 @@ namespace CarSimulator
 
         public void SpeedDown(int value)
         {
-            SetSpeed(Speed - value);
+            Speed -= value;
             OnSpeedChanged(Speed);
         }
         public void SpeedUp(int value)
         {
-            SetSpeed(Speed + value);
+            Speed += value;
             OnSpeedChanged(Speed);
         }
 
@@ -37,12 +37,6 @@ namespace CarSimulator
         {
             var args = new SpeedChangedArgs(newSpeed);
             SpeedChanged?.Invoke(this, args);
-        }
-
-        private void SetSpeed(int value) 
-        {
-            int newValue = Math.Max(-20, Math.Min(value, 180));
-            this._speed = newValue;
         }
     }
 }
