@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CarSimulator
 {
-    interface IOdometer
+    public interface IOdometer
     {
         //implementation should probably have private set
         //returns number of meters driven from start
