@@ -34,8 +34,7 @@ namespace CarSimulator
 
         protected virtual void OnSpeedChanged(int newSpeed)
         {
-            var args = new SpeedChangedArgs(newSpeed);
-            SpeedChanged?.Invoke(this, args);
+            SpeedChanged?.Invoke(this, new SpeedChangedArgs(newSpeed));
         }
     }
 }
