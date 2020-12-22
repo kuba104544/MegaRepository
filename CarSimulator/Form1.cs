@@ -43,5 +43,15 @@ namespace CarSimulator
             lOdo.Invoke((Action) delegate { lOdo.Text = e.Odo.ToString(); });
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            new SpeedometerForm(engine).Show();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            new OdometerForm(odometer).Show();
+
+        }
     }
 }
