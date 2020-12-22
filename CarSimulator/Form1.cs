@@ -108,5 +108,15 @@ namespace CarSimulator
             timerSpeed.Enabled = false;
             btnSpeedDownPressed = false;
         }
+
+        private void bSpeedUp_Click(object sender, EventArgs e)
+        {
+            engine.SpeedUp(1);
+        }
+
+        private void bSpeedDown_Click(object sender, EventArgs e)
+        {
+            engine.SpeedDown(2);
+        }
     }
 }
