@@ -36,16 +36,16 @@
             this.bSpeedometer = new System.Windows.Forms.Button();
             this.bOdometer = new System.Windows.Forms.Button();
             this.GB_Engine = new System.Windows.Forms.GroupBox();
-            this.GB_Meters = new System.Windows.Forms.GroupBox();
-            this.bSpeedUp = new System.Windows.Forms.Button();
-            this.bSpeedDown = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.gb_MetersDriven = new System.Windows.Forms.GroupBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.bSpeedDown = new System.Windows.Forms.Button();
+            this.bSpeedUp = new System.Windows.Forms.Button();
+            this.GB_Meters = new System.Windows.Forms.GroupBox();
             this.timerSpeed = new System.Windows.Forms.Timer(this.components);
             this.GB_Engine.SuspendLayout();
-            this.GB_Meters.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             this.gb_MetersDriven.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.GB_Meters.SuspendLayout();
             this.SuspendLayout();
             // 
             // bStart
@@ -83,7 +83,7 @@
             // bSpeedometer
             // 
             this.bSpeedometer.Location = new System.Drawing.Point(22, 28);
-            this.bSpeedometer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.bSpeedometer.Margin = new System.Windows.Forms.Padding(2);
             this.bSpeedometer.Name = "bSpeedometer";
             this.bSpeedometer.Size = new System.Drawing.Size(120, 23);
             this.bSpeedometer.TabIndex = 3;
@@ -94,7 +94,7 @@
             // bOdometer
             // 
             this.bOdometer.Location = new System.Drawing.Point(146, 28);
-            this.bOdometer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.bOdometer.Margin = new System.Windows.Forms.Padding(2);
             this.bOdometer.Name = "bOdometer";
             this.bOdometer.Size = new System.Drawing.Size(127, 23);
             this.bOdometer.TabIndex = 4;
@@ -116,38 +116,15 @@
             this.GB_Engine.TabStop = false;
             this.GB_Engine.Text = "Engine";
             // 
-            // GB_Meters
+            // gb_MetersDriven
             // 
-            this.GB_Meters.Controls.Add(this.bSpeedometer);
-            this.GB_Meters.Controls.Add(this.bOdometer);
-            this.GB_Meters.Location = new System.Drawing.Point(350, 56);
-            this.GB_Meters.Name = "GB_Meters";
-            this.GB_Meters.Size = new System.Drawing.Size(292, 73);
-            this.GB_Meters.TabIndex = 6;
-            this.GB_Meters.TabStop = false;
-            this.GB_Meters.Text = "External Speedometer and Odometer";
-            // 
-            // bSpeedUp
-            // 
-            this.bSpeedUp.Location = new System.Drawing.Point(103, 28);
-            this.bSpeedUp.Name = "bSpeedUp";
-            this.bSpeedUp.Size = new System.Drawing.Size(97, 23);
-            this.bSpeedUp.TabIndex = 3;
-            this.bSpeedUp.Text = "Speed Up";
-            this.bSpeedUp.UseVisualStyleBackColor = true;
-            this.bSpeedUp.MouseDown += new System.Windows.Forms.MouseEventHandler(this.bSpeedUp_MouseDown);
-            this.bSpeedUp.MouseUp += new System.Windows.Forms.MouseEventHandler(this.bSpeedUp_MouseUp);
-            // 
-            // bSpeedDown
-            // 
-            this.bSpeedDown.Location = new System.Drawing.Point(206, 28);
-            this.bSpeedDown.Name = "bSpeedDown";
-            this.bSpeedDown.Size = new System.Drawing.Size(90, 23);
-            this.bSpeedDown.TabIndex = 4;
-            this.bSpeedDown.Text = "Speed Down";
-            this.bSpeedDown.UseVisualStyleBackColor = true;
-            this.bSpeedDown.MouseDown += new System.Windows.Forms.MouseEventHandler(this.bSpeedDown_MouseDown);
-            this.bSpeedDown.MouseUp += new System.Windows.Forms.MouseEventHandler(this.bSpeedDown_MouseUp);
+            this.gb_MetersDriven.Controls.Add(this.lOdo);
+            this.gb_MetersDriven.Location = new System.Drawing.Point(103, 72);
+            this.gb_MetersDriven.Name = "gb_MetersDriven";
+            this.gb_MetersDriven.Size = new System.Drawing.Size(193, 66);
+            this.gb_MetersDriven.TabIndex = 7;
+            this.gb_MetersDriven.TabStop = false;
+            this.gb_MetersDriven.Text = "Meters driven";
             // 
             // groupBox1
             // 
@@ -159,15 +136,40 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Km/h";
             // 
-            // gb_MetersDriven
+            // bSpeedDown
             // 
-            this.gb_MetersDriven.Controls.Add(this.lOdo);
-            this.gb_MetersDriven.Location = new System.Drawing.Point(103, 72);
-            this.gb_MetersDriven.Name = "gb_MetersDriven";
-            this.gb_MetersDriven.Size = new System.Drawing.Size(193, 66);
-            this.gb_MetersDriven.TabIndex = 7;
-            this.gb_MetersDriven.TabStop = false;
-            this.gb_MetersDriven.Text = "Meters driven";
+            this.bSpeedDown.Location = new System.Drawing.Point(206, 28);
+            this.bSpeedDown.Name = "bSpeedDown";
+            this.bSpeedDown.Size = new System.Drawing.Size(90, 23);
+            this.bSpeedDown.TabIndex = 4;
+            this.bSpeedDown.Text = "Speed Down";
+            this.bSpeedDown.UseVisualStyleBackColor = true;
+            this.bSpeedDown.Click += new System.EventHandler(this.bSpeedDown_Click);
+            this.bSpeedDown.MouseDown += new System.Windows.Forms.MouseEventHandler(this.bSpeedDown_MouseDown);
+            this.bSpeedDown.MouseUp += new System.Windows.Forms.MouseEventHandler(this.bSpeedDown_MouseUp);
+            // 
+            // bSpeedUp
+            // 
+            this.bSpeedUp.Location = new System.Drawing.Point(103, 28);
+            this.bSpeedUp.Name = "bSpeedUp";
+            this.bSpeedUp.Size = new System.Drawing.Size(97, 23);
+            this.bSpeedUp.TabIndex = 3;
+            this.bSpeedUp.Text = "Speed Up";
+            this.bSpeedUp.UseVisualStyleBackColor = true;
+            this.bSpeedUp.Click += new System.EventHandler(this.bSpeedUp_Click);
+            this.bSpeedUp.MouseDown += new System.Windows.Forms.MouseEventHandler(this.bSpeedUp_MouseDown);
+            this.bSpeedUp.MouseUp += new System.Windows.Forms.MouseEventHandler(this.bSpeedUp_MouseUp);
+            // 
+            // GB_Meters
+            // 
+            this.GB_Meters.Controls.Add(this.bSpeedometer);
+            this.GB_Meters.Controls.Add(this.bOdometer);
+            this.GB_Meters.Location = new System.Drawing.Point(350, 56);
+            this.GB_Meters.Name = "GB_Meters";
+            this.GB_Meters.Size = new System.Drawing.Size(292, 73);
+            this.GB_Meters.TabIndex = 6;
+            this.GB_Meters.TabStop = false;
+            this.GB_Meters.Text = "External Speedometer and Odometer";
             // 
             // Form1
             // 
@@ -179,11 +181,11 @@
             this.Name = "Form1";
             this.Text = "Car Simulator";
             this.GB_Engine.ResumeLayout(false);
-            this.GB_Meters.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.gb_MetersDriven.ResumeLayout(false);
             this.gb_MetersDriven.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.GB_Meters.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

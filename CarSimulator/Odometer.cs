@@ -51,7 +51,7 @@ namespace CarSimulator
             lastSpeed = e.Speed;
             lastTime = DateTime.Now;
 
-            OnOdoChanged(odo);
+            OnOdoChanged(Odo);
         }
 
         private void Timer_Elapsed(object sender, ElapsedEventArgs e)
@@ -62,7 +62,7 @@ namespace CarSimulator
             lastSpeed = _engine.Speed;
             lastTime = DateTime.Now;
 
-            OnOdoChanged(odo);
+            OnOdoChanged(Odo);
         }
 
         private int KmPerHourToMPerSec(int kmPerh)
