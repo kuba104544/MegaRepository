@@ -15,13 +15,13 @@ namespace CarSimulator
 
         public void SpeedDown(int value)
         {
-            int newValue = Speed - value;
-            OnSpeedChanged(newValue);
+            SetSpeed(Speed - value);
+            OnSpeedChanged(Speed);
         }
         public void SpeedUp(int value)
         {
-            int newValue = Speed + value;
-            OnSpeedChanged(newValue);
+            SetSpeed(Speed + value);
+            OnSpeedChanged(Speed);
         }
 
         protected virtual void OnSpeedChanged(int newSpeed)
