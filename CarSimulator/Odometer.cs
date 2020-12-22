@@ -31,15 +31,27 @@ namespace CarSimulator
 
         public Odometer(IEngine engine)
         {
-            _engine = engine;
+            _engine=engine;
             lastSpeed = engine.Speed;
             lastTime = DateTime.Now;
             Odo = 0;
+            engine.SpeedChanged += SpeedChanged;
 
             timer.AutoReset = true;
             timer.Interval = 100;
             timer.Elapsed += Timer_Elapsed;
             timer.Start();
+        }
+
+        private void SpeedChanged(object sender, SpeedChangedArgs e)
+        {
+            DateTime now = DateTime.Now;
+            odo += lastSpeed * (now - lastTime).TotalMilliseconds / 1000;
+
+            lastSpeed = e.Speed;
+            lastTime = DateTime.Now;
+
+            OnOdoChanged(odo);
         }
 
         private void Timer_Elapsed(object sender, ElapsedEventArgs e)
@@ -50,7 +62,7 @@ namespace CarSimulator
             lastSpeed = _engine.Speed;
             lastTime = DateTime.Now;
 
-            OdoChanged?.Invoke(this, new OdoChangedArgs(Odo));
+            OnOdoChanged(odo);
         }
 
         private int KmPerHourToMPerSec(int kmPerh)
@@ -59,5 +71,10 @@ namespace CarSimulator
         }
 
         public event EventHandler<OdoChangedArgs> OdoChanged;
+
+        protected virtual void OnOdoChanged(int odo)
+        {
+            OdoChanged?.Invoke(this, new OdoChangedArgs(odo));
+        }
     }
 }

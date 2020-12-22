@@ -11,7 +11,7 @@ namespace CarSimulator
         private int _speed;
         public int Speed 
         {
-           
+
             get { return this._speed; }
             private set
             {
