@@ -14,8 +14,8 @@ namespace CarSimulator
     {
         IEngine engine = null;
         IOdometer odometer = null;
-        bool isOpenSpeedWindow = true;
-        SpeedometerForm speedometer;
+        bool isOpenSpeedWindow = false;
+        SpeedometerForm speedometer=null;
         private bool btnSpeedUpPressed = false;
         private bool btnSpeedDownPressed = false;
 
@@ -27,7 +27,11 @@ namespace CarSimulator
             odometer = new Odometer(engine);
             timerSpeed.Interval = 50;
             timerSpeed.Tick += TimerSpeed_Tick;
+
+         
         }
+
+    
 
         private void TimerSpeed_Tick(object sender, EventArgs e)
         {
@@ -58,12 +62,17 @@ namespace CarSimulator
 
         private void button1_Click(object sender, EventArgs e)
         {
-
-    
+            if (!isOpenSpeedWindow)
+            {
                 speedometer = new SpeedometerForm(engine);
                 speedometer.Show();
-       
-           
+                isOpenSpeedWindow = true;
+                speedometer.FormClosed += Speedometer_FormClosed;
+            }
+        }
+        private void Speedometer_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            isOpenSpeedWindow = false;
         }
 
         private void button2_Click(object sender, EventArgs e)
