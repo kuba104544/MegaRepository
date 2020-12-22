@@ -9,7 +9,16 @@ namespace CarSimulator
     class Engine : IEngine
     {
         private int _speed;
-        public int Speed => _speed;
+        public int Speed 
+        {
+           
+            get { return this._speed; }
+            private set
+            {
+                int newValue = Math.Max(-20, Math.Min(value, 180));
+                this._speed = newValue;
+            }
+        }
 
         public event EventHandler<SpeedChangedArgs> SpeedChanged;
 
