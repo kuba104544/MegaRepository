@@ -18,6 +18,9 @@ namespace CarSimulator
         public Form1()
         {
             InitializeComponent();
+
+            engine = new Engine();
+            odometer = new Odometer(engine);
         }
 
         private void bStart_Click(object sender, EventArgs e)
@@ -37,7 +40,8 @@ namespace CarSimulator
 
         private void Odometer_OdoChanged(object sender, OdoChangedArgs e)
         {
-            lOdo.Text = e.Odo.ToString();
+            lOdo.Invoke((Action) delegate { lOdo.Text = e.Odo.ToString(); });
         }
+
     }
 }
